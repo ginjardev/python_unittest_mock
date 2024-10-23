@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 from mocks.mock_selenium_wait import ExplicitWait
 from selenium.webdriver.common.by import By
-from run_tests import BaseTestCase
+from mock_fixtures import BaseTestCase
 
 
 class TestWaitForElement(BaseTestCase):

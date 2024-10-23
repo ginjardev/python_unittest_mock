@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 from mocks.mock_submit_form import submit_form
 from selenium.webdriver.common.by import By
-from run_tests import BaseTestCase
+from mock_fixtures import BaseTestCase
 
 class TestSubmitFormFunction(BaseTestCase):
     @patch('run_tests.webdriver.Remote')  # Patch Remote WebDriver
