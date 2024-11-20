@@ -16,5 +16,5 @@ class ExplicitWait:
 
     def wait_for_button_element(self):
         wait = WebDriverWait(self.driver, self.timeout)
-        button = wait.until(EC.visibility_of_element_located((By.XPATH, "//input[@type='submit']")))
+        button = wait.until(EC.visibility_of_element_located((By.XPATH, "//*[@id='column-right']/div/a[1]")))
         return button.text

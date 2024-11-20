@@ -1,39 +1,25 @@
-import unittest
-from unittest.mock import patch, MagicMock
-from mocks.mock_submit_form import submit_form
-from selenium.webdriver.common.by import By
 from mock_fixtures import BaseTestCase
+from mocks.submit_form import submit_form
+import unittest
 
-class TestSubmitFormFunction(BaseTestCase):
-    @patch('run_tests.webdriver.Remote')  # Patch Remote WebDriver
-    def test_submit_form(self, mock_webdriver):
-        # Create a mock WebDriver instance
-        mock_driver = MagicMock()
-        mock_webdriver.return_value = mock_driver
-        
-        # Mock find_element and get to prevent opening a real browser
-        mock_driver.find_element.return_value = MagicMock()
-        mock_driver.get.return_value = None
-        mock_driver.title = "Selenium Grid Online | Run Selenium Test On Cloud"
 
-        # Call the function with test inputs
-        title = submit_form(mock_driver,"home", "homepage")
+class TestSubmitForm(BaseTestCase):
 
-        if title:
+    def test_submit_form(self):
+        """Test the submit_form function with valid inputs."""
+        title = "Test Title"
+        description = "This is a test description."
+
+        # Call the function under test
+        page_title = submit_form(self.driver, title, description)
+
+        if page_title:
             self.driver.execute_script("lambda-status=passed")
         else:
-            self.driver.execute_script("lambda-status=failed")
+            self.driver.execute_script("lambda-status=failed")       
 
-        # # Assert that the correct elements were interacted with
-        mock_driver.find_element.assert_any_call(By.ID, "title")
-        mock_driver.find_element.assert_any_call(By.ID, "description")
-        mock_driver.find_element.assert_any_call(By.ID, "btn-submit")
+        # Assertions
+        self.assertEqual(page_title, "Selenium Grid Online | Run Selenium Test On Cloud")
 
-        # Assert that the driver navigated to the correct page
-        mock_driver.get.assert_called_once_with("https://www.lambdatest.com/selenium-playground/ajax-form-submit-demo")
-
-        # Assert the final page title is "Dashboard"
-        self.assertEqual(title, "Selenium Grid Online | Run Selenium Test On Cloud")
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
