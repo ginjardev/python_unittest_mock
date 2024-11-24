@@ -6,8 +6,8 @@ from mock_fixtures import BaseTestCase
 
 
 class TestWaitForElement(BaseTestCase):
-    @patch('mocks.selenium_wait.WebDriverWait')
-    @patch('mocks.selenium_wait.EC.visibility_of_element_located')
+    @patch('sample.selenium_wait.WebDriverWait')
+    @patch('sample.selenium_wait.EC.visibility_of_element_located')
     def test_wait_for_button_element(self, mock_visibility_of_element_located, mock_WebDriverWait):
         
         # Create a mock WebDriver instance
