@@ -1,5 +1,5 @@
 from mock_fixtures import BaseTestCase
-from mocks.submit_form import submit_form
+from sample.submit_form import submit_form
 import unittest
 
 

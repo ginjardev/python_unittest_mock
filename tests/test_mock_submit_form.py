@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from mocks.submit_form import submit_form
+from sample.submit_form import submit_form
 from selenium.webdriver.common.by import By
 from mock_fixtures import BaseTestCase
 

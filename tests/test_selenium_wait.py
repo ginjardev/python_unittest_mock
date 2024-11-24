@@ -1,4 +1,4 @@
-from mocks.selenium_wait import ExplicitWait
+from sample.selenium_wait import ExplicitWait
 import unittest
 from mock_fixtures import BaseTestCase
 

@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
-from mocks.selenium_wait import ExplicitWait
+from sample.selenium_wait import ExplicitWait
 from selenium.webdriver.common.by import By
 from mock_fixtures import BaseTestCase
 
@@ -9,6 +9,7 @@ class TestWaitForElement(BaseTestCase):
     @patch('mocks.selenium_wait.WebDriverWait')
     @patch('mocks.selenium_wait.EC.visibility_of_element_located')
     def test_wait_for_button_element(self, mock_visibility_of_element_located, mock_WebDriverWait):
+        
         # Create a mock WebDriver instance
         mock_driver = MagicMock()
         
